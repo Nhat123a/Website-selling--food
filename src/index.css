@@ -1,13 +1,77 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  font-family: "Quicksand";
+  font-size: 14px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (max-width: 768px) {
+  /* Điều chỉnh cho kích thước sm */
+  .container {
+    padding: 0 10px;
+  }
 }
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 1280px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+/* Slick slider */
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
+.card_cate {
+  display: flex !important;
+  justify-content: space-between;
+}
+.card_home:hover .cate_name {
+  color: #008b4b;
+}
+.slick-list {
+  margin: 0 -5px;
+}
+.slick-slide > div {
+  padding: 0 5px;
+}
+.Slider__Item:hover > .slide__img {
+  border: 2px solid #008b4b;
+}
+.Slider__Item:hover > .Item_info {
+  color: #008b4b;
+}
+/* Scoll bar */
+/* Target the scrollbar */
+.filter_checks::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track (background) */
+.filter_checks::-webkit-scrollbar-track {
+  background: #ccc;
+}
+
+/* Handle (thumb) */
+.filter_checks::-webkit-scrollbar-thumb {
+  background: #008b4b;
+  border-radius: 6px;
+}
+
+/* Key frame Moblie  */
