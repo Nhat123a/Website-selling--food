@@ -7,9 +7,12 @@ import Category from "./pages/users/Category";
 import Checkout from "./pages/users/Checkout";
 import Contact from "./pages/users/Contact";
 import Login from "./pages/users/Account/Login";
-import Account from "./pages/users/Account/LayoutAcount";
 import Register from "./pages/users/Account/Register";
 import LayoutAcount from "./pages/users/Account/LayoutAcount";
+import Favoriteproduct from "./pages/users/Favoriteproduct";
+import ShopSystem from "./pages/users/ShopSystem";
+import Breadcrumb from "./components/Breadcrumb";
+
 const HomePages = React.lazy(() => import("./pages/users/HomePages"));
 const About = React.lazy(() => import("./pages/users/About"));
 const Renderrouter = () => {
@@ -25,22 +28,37 @@ const Renderrouter = () => {
     {
       path: ROUTER.USER.Category,
       component: Category,
+      breadcrumb: "Danh mục",
     },
     {
       path: ROUTER.USER.About,
       component: About,
+      breadcrumb: "Giới thiệu",
     },
     {
       path: ROUTER.USER.Contact,
       component: Contact,
+      breadcrumb: "Liên Hệ",
     },
     {
       path: ROUTER.USER.Login,
       component: Login,
+      breadcrumb: "Đăng nhập",
     },
     {
       path: ROUTER.USER.Register,
       component: Register,
+      breadcrumb: "Đăng kí",
+    },
+    {
+      path: ROUTER.USER.Favoriteproduct,
+      component: Favoriteproduct,
+      breadcrumb: "Sản phẩm yêu thích",
+    },
+    {
+      path: ROUTER.USER.ShopSystem,
+      component: ShopSystem,
+      breadcrumb: "Hệ thống cửa hàng",
     },
   ];
   return (
@@ -61,6 +79,8 @@ const Renderrouter = () => {
                   </Layouts>
                 ) : (
                   <Layouts>
+                    <Breadcrumb routes={userRouter} />{" "}
+                    {/* Breadcrumb component */}
                     <item.component />
                   </Layouts>
                 )
@@ -81,6 +101,7 @@ const Renderrouter = () => {
             path={`${ROUTER.USER.Details}/:productName/:productid`}
             element={
               <Layouts>
+                <Breadcrumb routes={userRouter} />
                 <ProductDeltail />
               </Layouts>
             }

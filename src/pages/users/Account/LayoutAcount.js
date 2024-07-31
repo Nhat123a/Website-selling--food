@@ -16,7 +16,7 @@ const LayoutAccount = () => {
   return (
     <div className="container">
       <div className="py-8">
-        <div className="w-[385px] m-auto h-full">
+        <div className="sm:w-[385px] w-auto m-auto h-full">
           <ul className="flex items-center justify-center h-[50px] mb-4">
             <Link
               className={`uppercase flex-1 text-center flex items-center justify-center h-full ${

@@ -61,12 +61,23 @@ module.exports = {
             opacity: "0",
           },
         },
+        __Modal: {
+          "0%": {
+            transform: "translateY(-30px)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         slideIn: "slideIn 0.5s ease-in-out",
         slideOut: "slideOut 0.5s ease-in-out",
         FilterActive: "FilterActive 0.5s ease-in-out",
         FilterActiveOut: "FilterActiveOut 0.5s ease-in-out",
+        __Modal: "__Modal 0.5s ease-in-out",
       },
     },
   },

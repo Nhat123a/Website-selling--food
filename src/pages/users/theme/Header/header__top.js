@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const HeaderTop = () => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const loggedInUser = JSON.parse(localStorage.getItem("Name"));
+    const loggedInUser = localStorage.getItem("LoggedInUser");
     if (loggedInUser) {
-      setUser({ loggedInUser });
+      setUser(JSON.parse(loggedInUser));
     }
   }, []);
-  console.log(user);
+  // console.log(user);
+  const HandleLogout = () => {
+    localStorage.removeItem("LoggedInUser");
+    navigate("/");
+  };
   return (
     <div className="container grid grid-cols-1 md:grid-cols-2 items-center">
       <span className="hidden md:block">
@@ -21,7 +26,12 @@ const HeaderTop = () => {
         <ul className="flex space-x-4 ">
           <li className="space-x-5">
             {user ? (
-              <span className="hover:text-yellow">Xin chào,{user.Name}</span>
+              <div>
+                <span className="cursor-pointer">
+                  Xin chào, <b className="text-yellow">{user.Name}</b>
+                </span>
+                <button onClick={HandleLogout}>Đăng xuất</button>
+              </div>
             ) : (
               <Link className="flex items-center space-x-1" to="/dang-nhap">
                 <FaRegUser

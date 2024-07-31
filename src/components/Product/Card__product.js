@@ -2,13 +2,16 @@ import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa6";
 import { MdOutlineCompareArrows } from "react-icons/md";
 import CurrencyFormat from "react-currency-format";
 import { ROUTER } from "../../untils/router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addtoCart } from "../../Redux/CartSlice";
+import { useModal } from "../Modal/Product/Modalcontext";
+import { addFavorite, RemoveFavorite } from "../../Redux/FavoriteSlice";
 
 export const Card__product = ({
   productid,
@@ -18,6 +21,7 @@ export const Card__product = ({
   Status,
   productCount,
   productImage,
+  Description,
   tabId,
 }) => {
   const dispatch = useDispatch();
@@ -36,6 +40,35 @@ export const Card__product = ({
     toast.success("Thêm thành công", {
       position: "top-center", // Sử dụng chuỗi vị trí
       autoClose: 3000, // Tự động đóng sau 3 giây
+    });
+  };
+  // Thêm sản phẩm yêu thích
+  const HandleAddFavorite = () => {
+    const product = {
+      productID: productid,
+      productName: productName,
+      productImage: productImage[0],
+      priceNew: priceNew,
+      priceOld: priceOld,
+      status: Status,
+      productCount: productCount,
+      tabId: tabId,
+    };
+    dispatch(addFavorite(product));
+    toast.success("Đã thêm sản phẩm yêu thích", {
+      position: "top-center", // Sử dụng chuỗi vị trí
+      autoClose: 3000, // Tự động đóng sau 3 giây
+    });
+  };
+  const favorites = useSelector((state) => state.Favorite.Favorite);
+  const isFavorite = favorites.some((x) => x.productID === productid);
+
+  // Xóa
+  const HandleRemovefavorite = (productID) => {
+    dispatch(RemoveFavorite({ productID }));
+    toast.success("Đã xóa sản phẩm yêu thích", {
+      position: "top-center",
+      autoClose: 3000,
     });
   };
   const [active, setActive] = useState(false);
@@ -60,6 +93,7 @@ export const Card__product = ({
       productName
     )}/${productid}`;
   };
+  const { handleModal } = useModal();
 
   return (
     <div
@@ -82,22 +116,46 @@ export const Card__product = ({
             }`}
           >
             <ul className="lg:flex items-center hidden justify-center border border-[#bce3c9] rounded-[20px] transition-all duration-300">
-              <li
-                className="border border-gray text-green p-2 bg-white hover:text-yellow"
-                title="Xem nhanh"
+              <Link
+                onClick={() =>
+                  handleModal(true, {
+                    productid,
+                    productName,
+                    productImage,
+                    priceNew,
+                    priceOld,
+                    Description,
+                  })
+                }
               >
-                <Link>
+                <li
+                  className="border border-gray text-green p-2 bg-white hover:text-yellow"
+                  title="Xem nhanh"
+                >
                   <MdOutlineRemoveRedEye size={20} />
+                </li>
+              </Link>
+
+              {isFavorite ? (
+                <Link onClick={() => HandleRemovefavorite(productid)}>
+                  <li
+                    className="border border-gray text-yellow p-2 bg-white "
+                    title="Bỏ yêu thích"
+                  >
+                    <FaHeart size={20} />
+                  </li>
                 </Link>
-              </li>
-              <li
-                className="border border-gray text-green p-2 bg-white  hover:text-yellow"
-                title="Thêm vào yêu thích"
-              >
-                <Link>
-                  <CiHeart size={20} />
+              ) : (
+                <Link onClick={HandleAddFavorite}>
+                  <li
+                    className="border border-gray text-green hover:text-yellow p-2 bg-white  "
+                    title="Thêm vào yêu thích"
+                  >
+                    <CiHeart size={20} />
+                  </li>
                 </Link>
-              </li>
+              )}
+
               <li
                 className="border border-gray text-green p-2 bg-white  hover:text-yellow"
                 title="So sánh"

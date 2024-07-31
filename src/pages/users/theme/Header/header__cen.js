@@ -13,11 +13,10 @@ const HeaderCenter = ({ setIsCartOpen }) => {
   // console.log(setIsCartOpen);
   const location = useLocation();
 
-  useEffect(() => {
-    // Thực hiện hành động làm mới khi component được render lại
-    console.log("Component loaded or refreshed");
-  }, [location]);
+  useEffect(() => {}, [location]);
   const cartItems = useSelector((state) => state.cart.cart);
+  const favorites = useSelector((state) => state.Favorite.Favorite);
+
   //Mobile menu
   const [isOpen, setOpen] = useState(false);
   const [isClosing, setClosing] = useState(false);
@@ -130,39 +129,54 @@ const HeaderCenter = ({ setIsCartOpen }) => {
         {/* Items */}
         <div className="header__item lg:flex gap-10 cursor-pointer hidden">
           {headerList.slice(-4).map((item) => (
-            <div
-              key={item.ID}
-              onClick={() => item.name === "Giỏ hàng" && setIsCartOpen(true)}
-              className={`header__icon  min-w-32 border border-solid border-[rgba(0,0,0,0.09)] 
+            <Link to={item.slug} key={item.ID}>
+              <div
+                onClick={() => item.name === "Giỏ hàng" && setIsCartOpen(true)}
+                className={`header__icon  min-w-32 border border-solid border-[rgba(0,0,0,0.09)] 
               flex justify-center items-center px-4 py-[6px] space-x-1 rounded-[30px] bg-white hover:bg-yellow 
               
               `}
-            >
-              <div
-                className="text-[26px] relative"
-                style={{ filter: "brightness(1.5) contrast(0.8)" }}
               >
-                {item.icon}
-                {item.name === "Giỏ hàng" ? (
-                  <span
-                    className="badge absolute top-[-5px] right-[-5px] px-[3px] py-0
-                    bg-[#008b4b] text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center"
-                  >
-                    {cartItems.length} {/* Số lượng sản phẩm trong giỏ */}
-                  </span>
-                ) : (
-                  item.total >= 0 && (
+                <div
+                  className="text-[26px] relative"
+                  style={{ filter: "brightness(1.5) contrast(0.8)" }}
+                >
+                  {item.icon}
+                  {item.name === "Giỏ hàng" ? (
                     <span
                       className="badge absolute top-[-5px] right-[-5px] px-[3px] py-0
-                      bg-[#008b4b] text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center"
+                    bg-[#008b4b] text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center"
                     >
-                      {item.total}
+                      {cartItems.length}
                     </span>
-                  )
-                )}
+                  ) : item.name === "Yêu thích" ? (
+                    <span
+                      className="badge absolute top-[-5px] right-[-5px] px-[3px] py-0
+                    bg-[#008b4b] text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center"
+                    >
+                      {favorites.length}
+                    </span>
+                  ) : item.name === "Hệ thống" ? (
+                    <span
+                      className="badge absolute top-[-5px] right-[-5px] px-[3px] py-0
+                    bg-[#008b4b] text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center"
+                    >
+                      {cartItems.length}
+                    </span>
+                  ) : (
+                    item.total >= 0 && (
+                      <span
+                        className="badge absolute top-[-5px] right-[-5px] px-[3px] py-0
+                      bg-[#008b4b] text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center"
+                      >
+                        {item.total}
+                      </span>
+                    )
+                  )}
+                </div>
+                <span className="leading-[2px] text-[#000]">{item.name}</span>
               </div>
-              <span className="leading-[2px] text-[#000]">{item.name}</span>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

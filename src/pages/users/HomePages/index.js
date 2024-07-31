@@ -13,7 +13,6 @@ import { Productsea } from "../../../components/Product/productsea.js";
 import { NewCard } from "../../../components/New/NewCard.js";
 import { Partner } from "./Partner.js";
 import { ROUTER } from "../../../untils/router.js";
-import productData from "../../../Data/product.js";
 import "react-toastify/dist/ReactToastify.css";
 const HomePages = () => {
   const sliderRef = useRef(null);

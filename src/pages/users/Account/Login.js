@@ -6,8 +6,6 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
-  const [usersData, setUsersData] = useState([]);
-
   const schema = yup.object().shape({
     Email: yup.string().email("Email không hợp lệ").required("Trường bắt buộc"),
     Pass: yup.string().required("Trường bắt buộc"),
@@ -21,27 +19,26 @@ const Login = () => {
   });
 
   const onSubmit = (data) => {
-    const Savedata = localStorage.getItem("User", JSON.stringify(data));
-    if (Savedata) {
-      setUsersData(JSON.parse(Savedata));
+    const savedUsersData = localStorage.getItem("Users");
+    if (!savedUsersData) {
+      toast.error("Không có tài khoản nào tồn tại");
+      return;
     }
+
+    const usersData = JSON.parse(savedUsersData);
     const user = usersData.find(
-      (x) => x.Email === data.Email && x.Pass === data.Pass
+      (user) => user.Email === data.Email && user.Pass === data.Pass
     );
+
     if (user) {
-      toast.success("Đăng nhập thành công", {
-        position: "top-center",
-        autoClose: 2000,
-      });
+      localStorage.setItem("LoggedInUser", JSON.stringify(user));
+      toast.success("Đăng nhập thành công");
       setTimeout(() => {
         navigate("/");
       }, 2000);
     } else {
-      toast.error("Sai tên đăng nhập", {
-        position: "top-center",
-      });
+      toast.error("Email hoặc mật khẩu không đúng");
     }
-    // Handle form submission logic here
   };
   return (
     <div>

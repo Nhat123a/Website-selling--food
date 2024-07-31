@@ -80,6 +80,7 @@ export const ProductNews = (props) => {
               priceOld={index.priceOld}
               productName={index.productName}
               productImage={index.productImage}
+              Description={index.Description}
             />
           ))}
         </Slider>

@@ -67,6 +67,7 @@ export const Productsea = () => {
                     priceOld={index.priceOld}
                     productName={index.productName}
                     productImage={index.productImage}
+                    Description={index.Description}
                   />
                 ))}
               </Slider>

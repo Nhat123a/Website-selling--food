@@ -508,7 +508,7 @@ const ProductDeltail = () => {
                 </div>
               </div>
             </div>
-            <div className="Product__view col-span-3">
+            <div className="Product__view col-span-3 lg:col-auto">
               <div className="border border-[#ededed] overflow-hidden rounded-tl-[6px] rounded-tr-[6px]">
                 <div className="productView__Header  bg-green ">
                   <h2 className="py-[10px] cursor-pointer text-center text-base text-white uppercase font-semibold hover:text-yellow">

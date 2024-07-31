@@ -8,5 +8,7 @@ export const ROUTER = {
     Contact: "/Lien-he-voi-chung-toi",
     Login: "/dang-nhap",
     Register: "/dang-ki-tai-khoan",
+    Favoriteproduct: "/san-pham-yeu-thich",
+    ShopSystem: "/He-thong-cua-hang",
   },
 };

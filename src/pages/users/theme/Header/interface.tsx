@@ -35,7 +35,7 @@ const headerList: HeaderItem[] = [
     icon: <FaWarehouse />,
     total: 8,
     name: "Hệ thống",
-    slug: "",
+    slug: "/He-thong-cua-hang",
   },
   {
     ID: 4,
@@ -49,7 +49,7 @@ const headerList: HeaderItem[] = [
     icon: <FaRegHeart />,
     total: 1,
     name: "Yêu thích",
-    slug: "",
+    slug: "/san-pham-yeu-thich",
   },
   {
     ID: 6,

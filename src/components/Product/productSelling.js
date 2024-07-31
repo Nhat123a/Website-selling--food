@@ -165,6 +165,7 @@ export const ProductSelling = (props) => {
                   priceOld={product.priceOld}
                   productName={product.productName}
                   productImage={product.productImage}
+                  Description={product.Description}
                 />
               ))}
             </Slider>
