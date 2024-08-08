@@ -1,11 +1,10 @@
 import { Fragment, memo } from "react";
-import productData from "../../../Data/product";
 import { Card__product } from "../../../components/Product/Card__product";
 import { useDispatch, useSelector } from "react-redux";
 const Favoriteproduct = () => {
   // const dispatch = useDispatch();
   const Item = useSelector((state) => state.Favorite.Favorite);
-  console.log(Item);
+  // console.log(Item);
   return (
     <div className="container">
       <div className="py-8">

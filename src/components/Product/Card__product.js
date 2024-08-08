@@ -88,11 +88,7 @@ export const Card__product = ({
   const handleMouseLeave = () => {
     setActive(false);
   };
-  const HandleClickProduct = () => {
-    window.location.href = `${ROUTER.USER.Details}/${encodeURIComponent(
-      productName
-    )}/${productid}`;
-  };
+
   const { handleModal } = useModal();
 
   return (
@@ -117,7 +113,9 @@ export const Card__product = ({
           >
             <ul className="lg:flex items-center hidden justify-center border border-[#bce3c9] rounded-[20px] transition-all duration-300">
               <Link
-                onClick={() =>
+                to="#"
+                onClick={(e) => {
+                  e.preventDefault();
                   handleModal(true, {
                     productid,
                     productName,
@@ -125,8 +123,8 @@ export const Card__product = ({
                     priceNew,
                     priceOld,
                     Description,
-                  })
-                }
+                  });
+                }}
               >
                 <li
                   className="border border-gray text-green p-2 bg-white hover:text-yellow"
@@ -137,7 +135,12 @@ export const Card__product = ({
               </Link>
 
               {isFavorite ? (
-                <Link onClick={() => HandleRemovefavorite(productid)}>
+                <Link
+                  onClick={(e) => {
+                    e.preventDefault();
+                    HandleRemovefavorite(productid);
+                  }}
+                >
                   <li
                     className="border border-gray text-yellow p-2 bg-white "
                     title="Bỏ yêu thích"
@@ -146,7 +149,12 @@ export const Card__product = ({
                   </li>
                 </Link>
               ) : (
-                <Link onClick={HandleAddFavorite}>
+                <Link
+                  onClick={(e) => {
+                    e.preventDefault();
+                    HandleAddFavorite();
+                  }}
+                >
                   <li
                     className="border border-gray text-green hover:text-yellow p-2 bg-white  "
                     title="Thêm vào yêu thích"
@@ -177,7 +185,12 @@ export const Card__product = ({
       </div>
       <div className="Card__info text-center mb-3 leading-7">
         <div className="Product__Name font-semibold text-base whitespace-nowrap">
-          <Link onClick={HandleClickProduct} className="hover:text-green">
+          <Link
+            to={`${ROUTER.USER.Details}/${encodeURIComponent(
+              productName
+            )}/${productid}`}
+            className="hover:text-green"
+          >
             {productName}
           </Link>
         </div>

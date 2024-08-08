@@ -63,7 +63,7 @@ const Renderrouter = () => {
   ];
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense>
         <Routes>
           {userRouter.map((item, index) => (
             <Route

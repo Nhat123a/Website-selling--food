@@ -106,7 +106,14 @@ const Cart = ({ isCartOpen, setIsCartOpen }) => {
                   </div>
                   {/* Delete */}
                   <div className="Cart__delete my-2 text-red font-semibold hover:text-green">
-                    <Link onClick={() => RemoveItem(data.productID)}>Xóa</Link>
+                    <Link
+                      onClick={(e) => {
+                        e.preventDefault();
+                        RemoveItem(data.productID);
+                      }}
+                    >
+                      Xóa
+                    </Link>
                   </div>
                   {/* Số lượng */}
                   <div className="grid grid-cols-2 gap-2">

@@ -117,10 +117,10 @@ const HomePages = () => {
           <Slider {...settings} ref={sliderRef}>
             {Cateitems.map((index) => (
               <Link
+                to={`${ROUTER.USER.Category}${index.slug}`}
                 className="card_cate border w-full card_home  border-gray hover:border-green  bg-gray  text-center rounded-[5px] p-[10px]
                   transition-all duration-300 overflow-hidden"
                 key={index.id}
-                onClick={() => handleNavigation(index.slug)}
               >
                 <div className=" w-full">
                   <div className="image h-[130px] w-full md:h-[100px]">

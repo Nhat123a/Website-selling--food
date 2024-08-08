@@ -211,13 +211,16 @@ const productData = [
     priceNew: 87000,
     priceOld: 92000,
     categorySlug: "/thi-heo",
-
     Status: true,
     productCount: 15,
     TabID: 2,
-    Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    Description:
+      "Thịt bò Wagyu là sản phẩm được chọn lọc bởi Bean Farm, thuộc nhóm đặc sản vùng miền, chăn nuôi và quy trình giết mổ khép kín. Bò wagyu do Công ty CP Bò Kobe Việt Nam (KVB) phát triển, đây cũng là trang trại đầu tiên và duy nhất tại Việt Nam nuôi thành công giống Bò lông đen Nhật Bản thế hệ F1 với phương thức chăn nuôi đúng chuẩn của Nhật Bản do chính các chuyên gia Nhật Bản chỉ đạo kỹ thuật. Đây là một loại thịt bò chất lượng (ngon, thơm, mềm) và sạch (không sử dụng hormones, không chất tăng trưởng).",
+    productImage: [
+      "https://bizweb.dktcdn.net/thumb/medium/100/514/629/products/xuong-ong-bo-kobe2.jpg?v=1713511789060",
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/xuong-ong-bo-kobe.jpg?v=1713511789060",
+      "https://bizweb.dktcdn.net/thumb/medium/100/514/629/products/xuong-ong-bo-kobe3.jpg?v=1713511789060",
+    ],
     tabId: 4,
   },
   {
@@ -231,24 +234,29 @@ const productData = [
     Status: true,
     productCount: 15,
     TabID: 2,
-    Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    Description:
+      "Thức ăn của Heo, Gà được định lượng khoa học bởi hãng Bayer (Đức) và nấu chín giúp hệ tiêu hoá và sức đề kháng khoẻ mạnh. Bò và Dê được cho ăn hoàn toàn từ cỏ trong trang trại.Ngoài ra còn có các loại thảo dược như diệp hạ châu, tỏi, gừng, nghệ dùng thay cho thuốc kháng sinh để phòng và trị bệnh cho vật nuôi.",
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/nac-vai.jpg?v=1713511141443",
+    ],
     tabId: 4,
   },
   {
     productID: 15,
     productName: "Mỡ Heo",
-    priceNew: 87000,
-    priceOld: 92000,
+    priceNew: 76000,
+    priceOld: 84000,
     categorySlug: "/thi-heo",
 
     Status: true,
     productCount: 15,
     TabID: 2,
-    Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    Description:
+      "Thức ăn của Heo, Gà được định lượng khoa học bởi hãng Bayer (Đức) và nấu chín giúp hệ tiêu hoá và sức đề kháng khoẻ mạnh. Bò và Dê được cho ăn hoàn toàn từ cỏ trong trang trại.",
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/mo-heo.jpg?v=1713510949583",
+    ],
+
     tabId: 4,
   },
   {
@@ -260,9 +268,11 @@ const productData = [
     Status: true,
     productCount: 15,
     TabID: 2,
-    Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    Description:
+      "Thức ăn của Heo, Gà được định lượng khoa học bởi hãng Bayer (Đức) và nấu chín giúp hệ tiêu hoá và sức đề kháng khoẻ mạnh. Bò và Dê được cho ăn hoàn toàn từ cỏ trong trang trại.",
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/cot-let-heo.jpg?v=1713510533377",
+    ],
     tabId: 4,
   },
   {
@@ -274,9 +284,11 @@ const productData = [
     Status: true,
     productCount: 15,
     TabID: 2,
-    Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    Description:
+      "Thức ăn của Heo, Gà được định lượng khoa học bởi hãng Bayer (Đức) và nấu chín giúp hệ tiêu hoá và sức đề kháng khoẻ mạnh. Bò và Dê được cho ăn hoàn toàn từ cỏ trong trang trại",
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/xuong-thit-karst.jpg?v=1713176456930",
+    ],
     tabId: 4,
   },
   {
@@ -290,8 +302,9 @@ const productData = [
     productCount: 15,
     TabID: 2,
     Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/nac-dam.jpg?v=1713508834890",
+    ],
     tabId: 4,
   },
   //Thịt bò
@@ -305,9 +318,10 @@ const productData = [
     Status: true,
     productCount: 15,
     TabID: 2,
-    Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    Description: "",
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/bo-xay-karst.jpg?v=1713513689450",
+    ],
     tabId: 5,
   },
   {
@@ -319,9 +333,10 @@ const productData = [
     Status: true,
     productCount: 15,
     TabID: 2,
-    Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    Description: "",
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/xuong-ong-bo.jpg?v=1713513504497",
+    ],
     tabId: 5,
   },
   {
@@ -333,9 +348,10 @@ const productData = [
     Status: true,
     productCount: 15,
     TabID: 2,
-    Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    Description: "",
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/bap-chan-bo-kobe.jpg?v=1713513309253",
+    ],
     tabId: 5,
   },
   {
@@ -347,9 +363,10 @@ const productData = [
     Status: true,
     productCount: 15,
     TabID: 2,
-    Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    Description: "",
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/de-suon-bo-kobe.jpg?v=1713512193857",
+    ],
     tabId: 5,
   },
   {
@@ -361,9 +378,10 @@ const productData = [
     Status: true,
     productCount: 15,
     TabID: 2,
-    Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    Description: "",
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/gan-bo-kobe.jpg?v=1713512528300",
+    ],
     tabId: 5,
   },
   //Hải sản
@@ -376,9 +394,10 @@ const productData = [
     Status: true,
     productCount: 15,
     TabID: 2,
-    Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
-      "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/cha-muc-032a22f9-a411-4a36-bdfa-6960a87a9510.jpg?v=1713519591527",
+    Description: "",
+    productImage: [
+      "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/cha-muc.jpg?v=1713514946607",
+    ],
     tabId: 6,
     Type: 1,
   },
@@ -392,8 +411,9 @@ const productData = [
     productCount: 15,
     TabID: 2,
     Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/tom-su.jpg?v=1713516087560",
+    ],
     tabId: 6,
     Type: 1,
   },
@@ -407,8 +427,9 @@ const productData = [
     productCount: 15,
     TabID: 2,
     Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/ca-thu.jpg?v=1713515932630",
+    ],
     tabId: 6,
     Type: 1,
   },
@@ -422,8 +443,9 @@ const productData = [
     productCount: 15,
     TabID: 2,
     Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/ca-chim-trang.jpg?v=1713515560530",
+    ],
     tabId: 6,
     Type: 1,
   },
@@ -437,8 +459,9 @@ const productData = [
     productCount: 15,
     TabID: 2,
     Description: "Cà rốt tươi, giàu beta-carotene.",
-    productImage:
+    productImage: [
       "https://bizweb.dktcdn.net/thumb/large/100/514/629/products/ca-nuc.jpg?v=1713515803790",
+    ],
     tabId: 6,
     Type: 1,
   },

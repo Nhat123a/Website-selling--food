@@ -7,8 +7,8 @@ import { useState, useRef, useEffect } from "react";
 import data from "./data";
 const HeaderEnd = () => {
   const [active, setActive] = useState(1);
-  const [hoverItem, setHoverItem] = useState(null);
-  const [subHovered, setSubHovered] = useState(false);
+  // const [hoverItem, setHoverItem] = useState(null);
+  // const [subHovered, setSubHovered] = useState(false);
   const category = data.filter((item) => item.subLinks);
   const [hoverCate, sethoverCate] = useState(false);
   const categoryRef = useRef(null);
@@ -79,7 +79,7 @@ const HeaderEnd = () => {
                           )}
                         </Link>
                         <div
-                          className={`absolute bg-white gap-3 text-center  grid grid-cols-4  top-0 left-[203px] h-full w-[700px] px-3 py-1 shadow-lg ${
+                          className={`absolute bg-white gap-3 text-center  grid grid-cols-4  top-0 left-[240px] h-full w-[700px] px-3 py-1 shadow-lg ${
                             hoveredHeader === subItem.Header
                               ? "block"
                               : "hidden"
@@ -119,12 +119,6 @@ const HeaderEnd = () => {
                         : "bg-[#F1FAF6]"
                     }`}
                     onClick={() => handleactive(item.ID)}
-                    onMouseEnter={() => setHoverItem(item.ID)}
-                    onMouseLeave={() => {
-                      if (!subHovered) {
-                        setSubHovered(true);
-                      }
-                    }}
                   >
                     <span className="">{item.Name}</span>
                   </Link>

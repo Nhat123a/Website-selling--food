@@ -110,8 +110,8 @@ const ShopSystem = () => {
   }
   return (
     <div className="container">
-      <div className="py-8 flex items-start justify-between gap-5">
-        <div className="Option bg-green w-full flex-[4_4_0%] h-full">
+      <div className="py-8 flex items-start justify-between gap-5 flex-col lg:flex-row">
+        <div className="Option bg-green max-h-96 overflow-y-auto w-full flex-[4_4_0%] lg:max-h-full">
           <div className="group_city w-full p-3">
             <select
               className="w-full p-2 outline-none"

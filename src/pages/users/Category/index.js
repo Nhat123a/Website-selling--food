@@ -190,7 +190,7 @@ const Category = () => {
   const [activeSort, setActivesort] = useState(false);
   const [animationClass, setAnimationClass] = useState("");
 
-  console.log(activeSort);
+  // console.log(activeSort);
   const handleActivesort = (event) => {
     event.stopPropagation();
 

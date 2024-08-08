@@ -88,22 +88,36 @@ const HeaderCenter = ({ setIsCartOpen }) => {
                 <Link
                   key={item.ID}
                   to={item.slug}
-                  onClick={() => item.name === "Danh mục" && showCategory()}
+                  onClick={(e) => {
+                    if (item.name === "Danh mục") {
+                      showCategory();
+                      e.preventDefault();
+                    }
+                  }}
                 >
                   <div className="flex relative items-center gap-1 flex-col ">
                     <div className="text-2xl">{item.icon}</div>
                     <span className="hover:text-green font-semibold">
                       {item.name}
                     </span>
-                    {index >= 2 && (
-                      <span
-                        className="bg-green absolute top-[-5px] right-[-2px] text-[12px] text-white 
+                    {index >= 2 &&
+                      (item.name === "Yêu thích" ? (
+                        <span
+                          className="bg-green absolute top-[-5px] right-[-2px] text-[12px] text-white 
                         h-[18px] w-[18px] leading-[18px] rounded-full
                       flex items-center justify-center"
-                      >
-                        {item.total}
-                      </span>
-                    )}
+                        >
+                          {favorites.length}
+                        </span>
+                      ) : (
+                        <span
+                          className="bg-green absolute top-[-5px] right-[-2px] text-[12px] text-white 
+                        h-[18px] w-[18px] leading-[18px] rounded-full
+                      flex items-center justify-center"
+                        >
+                          {item.total}
+                        </span>
+                      ))}
                   </div>
                 </Link>
               ))}
@@ -131,7 +145,12 @@ const HeaderCenter = ({ setIsCartOpen }) => {
           {headerList.slice(-4).map((item) => (
             <Link to={item.slug} key={item.ID}>
               <div
-                onClick={() => item.name === "Giỏ hàng" && setIsCartOpen(true)}
+                onClick={(e) => {
+                  if (item.name === "Giỏ hàng") {
+                    e.preventDefault();
+                    setIsCartOpen(true);
+                  }
+                }}
                 className={`header__icon  min-w-32 border border-solid border-[rgba(0,0,0,0.09)] 
               flex justify-center items-center px-4 py-[6px] space-x-1 rounded-[30px] bg-white hover:bg-yellow 
               
