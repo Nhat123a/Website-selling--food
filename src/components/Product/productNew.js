@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
 import productdata from "../../Data/product";
+import { Link } from "react-router-dom";
 
 export const ProductNews = (props) => {
   const sliderRefs = useRef(null);
@@ -88,12 +89,13 @@ export const ProductNews = (props) => {
       <div
         className={`btn__more flex items-center justify-center mt-7 ${props.status} `}
       >
-        <button
+        <Link
+          to="/Danh-muc-san-pham"
           className="border border-green text-base rounded-[30px] px-[30px] py-[6px]
            text-green font-semibold hover:bg-yellow hover:text-black transition-all duration-300 hover:border-yellow"
         >
           Xem tất cả
-        </button>
+        </Link>
       </div>
     </div>
   );

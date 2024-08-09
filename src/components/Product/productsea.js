@@ -4,6 +4,7 @@ import productData from "../../Data/product";
 import Slider from "react-slick";
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 export const Productsea = () => {
   const productFilter = productData.filter((x) => x.Type === 1);
@@ -91,12 +92,13 @@ export const Productsea = () => {
           </>
           <div>
             <div className="btn__more flex items-center justify-center mt-7">
-              <button
+              <Link
+                to="/Danh-muc-san-pham"
                 className="border border-green text-base rounded-[30px] px-[30px] py-[6px]
            text-green font-semibold hover:bg-yellow hover:text-black transition-all duration-300 hover:border-yellow"
               >
                 Xem tất cả
-              </button>
+              </Link>
             </div>
           </div>
         </div>

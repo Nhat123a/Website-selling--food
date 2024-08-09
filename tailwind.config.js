@@ -71,6 +71,29 @@ module.exports = {
             opacity: "1",
           },
         },
+        userActive: {
+          "0%": {
+            transform: "translateY(-20px)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+        },
+        shake: {
+          "0%": { transform: "translate(1px, 1px) rotate(0deg)" },
+          "10%": { transform: "translate(-1px, -2px) rotate(-1deg)" },
+          "20%": { transform: "translate(-3px, 0px) rotate(1deg)" },
+          "30%": { transform: "translate(3px, 2px) rotate(0deg)" },
+          "40%": { transform: "translate(1px, -1px) rotate(1deg)" },
+          "50%": { transform: "translate(-1px, 2px) rotate(-1deg)" },
+          "60%": { transform: "translate(-3px, 1px) rotate(0deg)" },
+          "70%": { transform: "translate(3px, 1px) rotate(-1deg)" },
+          "80%": { transform: "translate(-1px, -1px) rotate(1deg)" },
+          "90%": { transform: "translate(1px, 2px) rotate(0deg)" },
+          "100%": { transform: "translate(1px, -2px) rotate(-1deg)" },
+        },
       },
       animation: {
         slideIn: "slideIn 0.5s ease-in-out",
@@ -78,6 +101,8 @@ module.exports = {
         FilterActive: "FilterActive 0.5s ease-in-out",
         FilterActiveOut: "FilterActiveOut 0.5s ease-in-out",
         __Modal: "__Modal 0.5s ease-in-out",
+        userActive: "userActive 0.5s ease-in-out",
+        shake: "shake 0.82s ease-in-out",
       },
     },
   },

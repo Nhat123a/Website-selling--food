@@ -35,7 +35,7 @@ const Login = () => {
       toast.success("Đăng nhập thành công");
       setTimeout(() => {
         navigate("/");
-      }, 2000);
+      }, 500);
     } else {
       toast.error("Email hoặc mật khẩu không đúng");
     }

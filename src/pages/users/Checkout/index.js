@@ -1,6 +1,6 @@
 import React, { memo, useMemo } from "react";
 import logo from "../../../assets/users/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { MdPayment } from "react-icons/md";
@@ -11,12 +11,16 @@ import {
   CallApidistrics,
   CallApiward,
 } from "../../../API/callApi";
+
 import { useDispatch, useSelector } from "react-redux";
 import CurrencyFormat from "react-currency-format";
+import { CiLogout } from "react-icons/ci";
 
 const Checkout = () => {
   // Vận chuyển
   const [selected, setSelected] = useState(false);
+  const navigate = useNavigate();
+
   const handleChange = () => {
     setSelected(selected);
   };
@@ -121,6 +125,18 @@ const Checkout = () => {
   const total = useMemo(() => {
     return Provisional + 40000;
   });
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("LoggedInUser");
+    if (loggedInUser) {
+      setUser(JSON.parse(loggedInUser));
+    }
+  }, []);
+  // console.log(user);
+  const HandleLogout = () => {
+    localStorage.removeItem("LoggedInUser");
+    navigate("/");
+  };
   return (
     <div
       className="container  "
@@ -129,26 +145,44 @@ const Checkout = () => {
       }}
     >
       <div className="wrap__container grid grid-cols-3 gap-5 min-h-screen">
-        <div className="wrap__left  col-span-2">
+        <div className="wrap__left  col-span-3 lg:col-span-2">
           <div className="main__header pb-3 flex items-center justify-center">
             <div className="logo cursor-pointer w-38 h-20 overflow-hidden ">
               <img src={logo} className="w-full h-full"></img>
             </div>
           </div>
-          <div className="main__conten grid grid-cols-2 gap-5">
+          <div className="main__conten grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="Main__input">
               <div className="Header__input flex items-center justify-between ">
                 <h2 className="font-semibold text-[1.15rem]">
                   Thông tin nhận hàng
                 </h2>
-                <div>
-                  <Link className="flex items-center text-__blue gap-1 ">
-                    <span>
-                      <FaUserCircle size={18} />
-                    </span>
-                    <span className="text-base">Đăng nhập</span>
-                  </Link>
-                </div>
+                {user ? (
+                  <div>
+                    <Link
+                      onClick={HandleLogout}
+                      to="/"
+                      className="flex items-center text-__blue gap-1 "
+                    >
+                      <span>
+                        <CiLogout size={18} />
+                      </span>
+                      <span className="text-base">Đăng xuất</span>
+                    </Link>
+                  </div>
+                ) : (
+                  <div>
+                    <Link
+                      to="/dang-nhap"
+                      className="flex items-center text-__blue gap-1 "
+                    >
+                      <span>
+                        <FaUserCircle size={18} />
+                      </span>
+                      <span className="text-base">Đăng nhập</span>
+                    </Link>
+                  </div>
+                )}
               </div>
               <div className="input__main mt-2 flex flex-col gap-4 text-[#999]">
                 <div className="input_email ">
@@ -300,7 +334,7 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-        <div className="wrap__right bg-[#fafafa] h-full border-l border-[#C0C0C0] ">
+        <div className="wrap__right bg-[#fafafa] h-full col-span-3 lg:col-span-1 border-l border-[#C0C0C0] ">
           <div className="Header__right border-b border-[#C0C0C0]">
             <h2 className="font-semibold text-[1.15rem] pl-8 py-4">
               Đơn hàng ({Cartitem.length} sản phẩm)

@@ -10,5 +10,10 @@ export const ROUTER = {
     Register: "/dang-ki-tai-khoan",
     Favoriteproduct: "/san-pham-yeu-thich",
     ShopSystem: "/He-thong-cua-hang",
+    Infomation: "/Thong-tin-tai-khoan",
+    ChangePass: "/doi-mat-khau",
+    Order: "/don-hang",
+    New: "/tin-tuc",
+    Info: "/cau-hoi-thuong-gap",
   },
 };

@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { useState } from "react";
-import logo from "../../../../assets/users/logo.png";
+import logo from "../../../../assets/users/logo3.png";
 import { CiSearch } from "react-icons/ci";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
@@ -52,13 +52,19 @@ const HeaderCenter = ({ setIsCartOpen }) => {
           <FaBars size={28}></FaBars>
         </div>
         {/* Logo */}
-        <div className="header__logo  w-36 h-20 md:flex ">
+        <div className="header__logo  w-40 h-32 md:flex ">
           <Link to="/">
             <img className="w-full h-full" src={logo} alt="logo" />
           </Link>
         </div>
         {/* Cart icon */}
-        <div className="lg:hidden relative">
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            setIsCartOpen(true);
+          }}
+          className="lg:hidden relative"
+        >
           <HiOutlineShoppingBag size={32}></HiOutlineShoppingBag>
           <span
             className="rounded-full absolute top-[-5px] right-[-8px] bg-green text-white text-[10px] h-5 w-5 leading-5 flex

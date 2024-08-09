@@ -43,7 +43,7 @@ const Register = () => {
       toast.success("Đăng kí thành công");
       setTimeout(() => {
         navigate("/dang-nhap");
-      }, 5000);
+      }, 500);
     }
   };
 

@@ -140,12 +140,12 @@ const data = [
   {
     ID: 5,
     Name: "Tin tức",
-    Slug: "tin-tuc",
+    Slug: "/tin-tuc",
   },
   {
     ID: 6,
     Name: "Câu hỏi thường gặp",
-    Slug: "/cau-hoi-thuong-gap",
+    Slug: "/",
   },
 ];
 

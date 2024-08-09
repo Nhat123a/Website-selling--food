@@ -74,7 +74,7 @@ const Cart = ({ isCartOpen, setIsCartOpen }) => {
     <div
       className={`Cart__container transform transition-transform duration-500 ${
         isCartOpen ? "translate-x-0" : "translate-x-full"
-      } fixed right-0 top-0 bottom-0 bg-white w-[20%] h-full z-[10000] flex flex-col`}
+      } fixed right-0 top-0 bottom-0 bg-white w-[90%] sm:w-[65%] md:w-[50%] lg:w-[30%] xl:w-[20%] h-full z-[10000] flex flex-col`}
     >
       <button
         onClick={() => setIsCartOpen(false)}

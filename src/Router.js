@@ -12,6 +12,10 @@ import LayoutAcount from "./pages/users/Account/LayoutAcount";
 import Favoriteproduct from "./pages/users/Favoriteproduct";
 import ShopSystem from "./pages/users/ShopSystem";
 import Breadcrumb from "./components/Breadcrumb";
+import Infomation from "./pages/users/Account/Infomation";
+import ChangePass from "./pages/users/Account/Changepass";
+import Order from "./pages/users/Order";
+import NewFeed from "./pages/users/NewFeed";
 
 const HomePages = React.lazy(() => import("./pages/users/HomePages"));
 const About = React.lazy(() => import("./pages/users/About"));
@@ -59,6 +63,31 @@ const Renderrouter = () => {
       path: ROUTER.USER.ShopSystem,
       component: ShopSystem,
       breadcrumb: "Hệ thống cửa hàng",
+    },
+    {
+      path: ROUTER.USER.Infomation,
+      component: Infomation,
+      breadcrumb: "Thông tin tài khoản",
+    },
+    {
+      path: ROUTER.USER.ChangePass,
+      component: ChangePass,
+      breadcrumb: "Đổi mật khẩu",
+    },
+    {
+      path: ROUTER.USER.Order,
+      component: Order,
+      breadcrumb: "Đơn Hàng",
+    },
+    {
+      path: ROUTER.USER.New,
+      component: NewFeed,
+      breadcrumb: "Tin tức",
+    },
+    {
+      path: ROUTER.USER.Info,
+      component: Order,
+      breadcrumb: "Câu hỏi thường gặp",
     },
   ];
   return (

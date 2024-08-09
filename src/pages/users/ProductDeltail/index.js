@@ -487,17 +487,21 @@ const ProductDeltail = () => {
                 <div className="Tab__header">
                   <ul className="flex items-center font-bold gap-5 border-b border-[#D9D9D9] text-lg">
                     {datatab.map((tab, index) => (
-                      <li
-                        key={tab.id}
-                        onClick={() => HandleActivetab(index)}
+                      <Link
+                        key={tab.Tab_id}
                         className={`rounded-tl-[6px] ${
                           activeTab === index
                             ? "bg-green text-white"
                             : "bg-white text-black"
                         } rounded-tr-[6px] hover:bg-green hover:text-white  px-4 py-[10px]`}
+                        to="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          HandleActivetab(index);
+                        }}
                       >
-                        <Link>{tab.Name}</Link>
-                      </li>
+                        {tab.Name}
+                      </Link>
                     ))}
                   </ul>
                 </div>
